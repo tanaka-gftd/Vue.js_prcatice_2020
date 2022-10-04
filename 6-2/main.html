@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>商品一覧（Vue.jsを使って、各コンポーネントに分けた場合）</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="components/product-header.css">
+        <link rel="stylesheet" href="components/product.css">
+        <link rel="stylesheet" href="components/product-list.css">
+    </head>
+
+    <body>
+        <!-- id="app"と結びついているのはmain.js -->
+        <div id="app">
+
+            <!-- この部分に商品一覧コンポーネントが描画される-->
+            <!-- v-bind:products="products"で、main.jsが持つproducts（商品データ）を、子コンポーネントに渡せるようにする-->
+            <product-list v-bind:products="products"></product-list>
+
+        </div>
+
+        <script src="../vue.js"></script>
+
+        <!-- 子は親のテンプレート内で使われるので、親より子を先に読み込む-->
+        
+        <script src="common/filter.js"></script>   <!-- 通貨の書式を変更するためのフィルター -->
+        <script src="components/product-header.js"></script>   <!-- product-list.jsのヘッダー部分を構成するコンポーネント -->
+        <script src="components/product.js"></script>   <!-- product-list.js内で使われるコンポーネントで、商品一個分のデータを持つ -->
+        <script src="components/product-list.js"></script>   <!-- 表示する際にメインとなるコンポーネントで、子コンポーネントとしてproduct.jsとproduct-header.jsを持つ -->
+        <script src="main.js"></script>   <!-- 商品リストを保持しているコンポーネント-->
+    </body>
+</html>

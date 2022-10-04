@@ -1,0 +1,18 @@
+/* 商品一覧コンポーネントのスタイルで、商品データをタイル状に並べるためのスタイル*/
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.list::after {
+    content: "";
+    display: block;
+    width: 250px;
+}

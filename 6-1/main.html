@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>6-1</title>
+    </head>
+    <body>
+        <div id="app">
+            <p>↓ここにコンポーネントが入ります。</p>  
+            
+                <select>
+                    <option is="my-option" v-for="item in products" v-bind="item" v-bind:key="item.id"></option>>
+                </select>
+        </div>
+        
+        <script src="../vue.js"></script>
+
+        <!-- Vue.filter()と同様に、Vue.component()などのグローバルスコープメソッドは、new Vue()よりも先に実行しなくてはならない。
+          そのため、コンポーネントを定義したスクリプトファイルは、new Vue()を記述したスクリプトファイルよりも先にHTMLへ読み込む必要がある。 -->
+       
+        <script src="my-option.js"></script> <!-- 子コンポーネント -->
+        <script src="main.js"></script> <!-- 親コンポーネント -->
+    </body>
+</html>

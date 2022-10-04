@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="utf-8">
+        <title>Bootstrap Vue練習用</title>
+        <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
+        <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.css" />
+        <style>[v-cloak] {display: none;}</style>
+    </head>
+    <body>
+        <div id="app" v-cloak>
+            <h4>{{message}}</h4>
+            <b-form>
+                <b-radio-group v-model="movieType" v-bind:options="movieTypeOptions" name="movie_type" plain></b-radio-group>
+            </b-form>
+        </div>
+    </body>
+</html>
+
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es2015%2CMutationObserver" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue@latest/dist/vue.min.js"></script>
+<script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.min.js"></script>
+<script> 
+    var app = new Vue({
+        el: '#app',
+        data: {
+            message: 'ラジオボタンをBootstrap Vueで表示してみる',
+            movieType: '余興ムービー',
+            movieTypeOptions: [
+                {text: '余興ムービー', value:'余興ムービー'},
+                {text: 'サプライズムービー', value:'サプライズムービー'},
+                {text: '生い立ちムービー', value:'生い立ちムービー'},
+                {text: 'オープニングムービー', value:'オープニングムービー'},
+            ]
+        }
+    })
+</script>
